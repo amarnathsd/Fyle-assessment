@@ -9,7 +9,6 @@ function fetchUserAndRepositories(username) {
   fetch(userApiUrl)
     .then(response => response.json())
     .then(userData => {
-      // Update user profile section
       const avatarImage = document.getElementById('avatarImage');
       const userName = document.getElementById('userName');
       const userLocation = document.getElementById('userLocation');
@@ -18,23 +17,23 @@ function fetchUserAndRepositories(username) {
       userName.innerText = userData.login;
       userLocation.innerText = userData.location || 'Location not available';
 
-      // Fetch repositories data
+      
       fetch(reposApiUrl)
         .then(response => response.json())
         .then(repositories => {
-          // Update repositories data
+          
           repositoriesData = repositories.map(repo => ({
             name: repo.name,
             description: repo.description,
             languages: repo.language,
           }));
 
-          // Update repositories section
+          
           const repositoriesContainer = document.getElementById('repositories');
           repositoriesContainer.innerHTML = '';
 
           for (const repository of repositoriesData) {
-            // Create repository elements
+    
             const repositoryElement = document.createElement('div');
             repositoryElement.classList.add('repository');
 
@@ -62,7 +61,7 @@ function fetchUserAndRepositories(username) {
       console.error('Error fetching user data:', error);
     });
 
-  // Update current page number
+  
   const currentPageElement = document.getElementById('currentPage');
   currentPageElement.innerText = page.toString();
 }
@@ -92,5 +91,5 @@ newerButton.addEventListener('click', () => {
   fetchUserAndRepositories(document.getElementById('username').value.trim());
 });
 
-// Fetch user and repositories data on page load (default username: johnpapa)
+// (default username: johnpapa)
 fetchUserAndRepositories('johnpapa');
