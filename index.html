@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Github Repositories</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="profile" id="profileSection">
+      <img src="" alt="User Avatar" class="avatar" id="avatarImage">
+      <div class="details" id="profileDetails">
+        <h1 id="userName"></h1>
+        <p id="userLocation"></p>
+      </div>
+    </div>
+  </header>
+  
+  <main>
+    <div class="search-container">
+      <label for="username">GitHub Username:</label>
+      <input type="text" id="username" placeholder="Enter GitHub username">
+      <button id="fetchButton">Fetch Repositories</button>
+    </div>
+    
+    <div id="repositories" class="repositories"></div>
+
+    <div class="pagination">
+      <button id="olderButton">Older</button>
+      <span id="currentPage" class="page-number">1</span>
+      <button id="newerButton">Newer</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
